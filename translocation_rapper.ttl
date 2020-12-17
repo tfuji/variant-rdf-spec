@@ -1,0 +1,62 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix sio: <http://semanticscience.org/resource/> .
+@prefix faldo: <http://biohackathon.org/resource/faldo#> .
+@prefix hco: <http://identifiers.org/hco/> .
+@prefix gvo: <http://genomevariant.org/ns> .
+
+[]
+    sio:SIO_000223 [
+        faldo:location [
+            sio:has-ordered-part [
+                sio:SIO_000628 <http://identifiers.org/hco/1-1-56651907#GRCh37> ;
+                sio:has-value 1 ;
+                a sio:SIO_001261
+            ], [
+                sio:SIO_000628 <http://identifiers.org/hco/5-12754271-180915260#GRCh37> ;
+                sio:has-value 2 ;
+                a sio:SIO_001261
+            ] ;
+            sio:has-part [
+                faldo:begin 1 ;
+                faldo:end 56651907 ;
+                faldo:reference <http://identifiers.org/hco/1#GRCh37> ;
+                a faldo:Region
+            ], [
+                faldo:begin 12754271 ;
+                faldo:end 180915260 ;
+                faldo:reference <http://identifiers.org/hco/5#GRCh37> ;
+                a faldo:Region
+            ] ;
+            a faldo:CollectionOfRegions
+        ] ;
+        rdfs:subClassOf obo:SO_0000340
+    ], [
+        faldo:location [
+            faldo:after 56651907 ;
+            faldo:before 56651908 ;
+            faldo:reference <http://identifiers.org/hco/1> ;
+            a faldo:InBetweenPosition
+        ] ;
+        sio:SIO_000061 _:genid1 ;
+        sio:SIO_000300 "N" ;
+        a gvo:ReferenceFeature, _:ReferenceAllele ;
+        rdfs:subClassOf obo:SO_0001873
+    ], [
+        faldo:location [
+            faldo:after 12754270 ;
+            faldo:before 12754271 ;
+            faldo:reference <http://identifiers.org/hco/5> ;
+            a faldo:InBetweenPosition
+        ] ;
+        sio:SIO_000061 _:genid4 ;
+        sio:SIO_000300 "<CTX>" ;
+        a gvo:AlternativeFeature, _:AlternativeAllele ;
+        rdfs:subClassOf obo:SO_0001873
+    ], [
+        rdfs:subClassOf obo:SO_0001506
+    ] ;
+    a gvo:Interchromosomal_translocation ;
+    rdfs:subClassOf obo:SO_0002060 .
+

@@ -1,0 +1,101 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix sio: <http://semanticscience.org/resource/> .
+@prefix faldo: <http://biohackathon.org/resource/faldo#> .
+@prefix hco: <http://identifiers.org/hco/> .
+@prefix gvo: <http://genomevariant.org/ns> .
+
+
+
+
+[ 
+  rdf:type gvo:Interchromosomal_translocation ;             #variant type
+  # sequence_feature > sequence_comparison REF/ALT
+  rdfs:subClassOf obo:SO_0002060 ; #interchromosomal_translocation
+  # http://purl.obolibrary.org/obo/SO_0002060
+  # sequence_feature > sequence_comparison> sequence_alteration > structural_alteration > translocation > chromosomal_translocation> interchromosomal_translocation
+  # sequence_feature > sequence_comparison> sequence_alteration > structural_alteration > complex_structural_alteration
+  # sequence_feature > sequence_comparison> sequence_alteration > substitution > SNV
+  # sequence_feature > sequence_comparison> sequence_alteration > deletion
+  # sequence_feature > sequence_comparison> sequence_alteration > delins
+  # sequence_feature > sequence_comparison> sequence_alteration > insertion
+  # sequence_feature > sequence_comparison> sequence_alteration > inversion
+  # sequence_feature > sequence_comparison> sequence_alteration > sequence_length_alteration > copy_number_variation
+                                                 
+
+  # REF
+  sio:SIO_000223 [                                     #has property
+    rdf:type gvo:ReferenceFeature ;
+    rdfs:subClassOf obo:SO_0001873 ;               #interchromosomal_breakpoint
+    # http://purl.obolibrary.org/obo/SO_0001873
+    # sequence_feature > junction > chromosome_breakpoint > interchromosomal_breakpoint
+    rdf:type _:ReferenceAllele;
+    sio:SIO_000061 [];                             #is located in ?
+    faldo:location [
+      a faldo:InBetweenPosition ;
+      faldo:after 56651907 ;                       #POS  56651907
+      faldo:before 56651908 ;                      #END=56651908
+      faldo:reference hco:1#GRCh37                 #CHROM
+    ]; 
+    sio:SIO_000300 "N"  #has value                     #REF
+  ];
+  # ALT
+  sio:SIO_000223 [                                     #has property
+    rdf:type gvo:AlternativeFeature ;
+    rdfs:subClassOf obo:SO_0001873 ;               #interchromosomal_breakpoint
+    # http://purl.obolibrary.org/obo/SO_0001873
+    # sequence_feature > junction > chromosome_breakpoint > interchromosomal_breakpoint
+    rdf:type _:AlternativeAllele;                         #
+    sio:SIO_000061 [];                             #is located in ?
+    faldo:location [
+      a faldo:InBetweenPosition ;
+      faldo:after 12754270 ;                       #POS2=12754270
+      faldo:before 12754271 ;                      #END2=12754271
+      faldo:reference hco:5#GRCh37                 #CHR2=5
+    ]; 
+    sio:SIO_000300 "<CTX>"                             #ALT, has value   
+  ];
+
+  # Variant Genome
+  # sequence_collection > genome > variant_genome > chromosomally_aberrant_genome > chromosome_variation > chromosome_structure_variation > interchromosomal_mutation > chromosomal_translocation> interchromosomal_translocation
+  # sequence_collection > genome > variant_genome > chromosomally_aberrant_genome > chromosome_variation > chromosome_structure_variation > complex_structural_alteration
+
+  sio:SIO_000223 [ #has property
+    rdfs:subClassOf obo:SO_0001506  #variant_genome
+    # http://purl.obolibrary.org/obo/SO_0001506
+    # sequence_collection > genome > variant_genome
+  ];
+  
+  # Variant Chromosome
+  # <#VariantChromosome> sio:part-of <#VariantChromosome>
+  sio:SIO_000223 [ #has property
+    rdfs:subClassOf obo:SO_0000340 ; #Chromosome
+    faldo:location [
+      a faldo:CollectionOfRegions ;
+      sio:has-ordered-part [
+        rdf:type sio:SIO_001261 ; # ordered part
+        sio:SIO_000628  hco:1-1-56651907\#GRCh37 ;   #refers to
+        sio:has-value 1
+      ];
+      sio:has-ordered-part [
+        rdf:type sio:SIO_001261 ; # ordered part
+        sio:SIO_000628 hco:5-12754271-180915260\#GRCh37 ; #refers to
+        sio:has-value 2
+      ];
+      sio:has-part [                                 #hco:1-1-56651907#GRCh37
+        rdf:type faldo:Region ;
+        faldo:begin 1 ;                              #chromosome 1 begin
+        faldo:end 56651907 ;                         #
+        faldo:reference hco:1\#GRCh37                 #
+      ];
+      sio:has-part [                                 #hco:5-12754271-180915260#GRCh37
+        rdf:type faldo:Region ;
+        faldo:begin 12754271 ;                       #
+        faldo:end 180915260 ;                        #chromosome length
+        faldo:reference hco:5\#GRCh37                 #
+      ]        
+    ]
+  ]
+]
+.
