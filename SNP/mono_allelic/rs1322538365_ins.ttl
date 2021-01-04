@@ -14,7 +14,7 @@
   # http://purl.obolibrary.org/obo/SO_0000667
   # sequence_feature > sequence_comparison> sequence_alteration > insertion
   
-  rdf:type gvo:SNV ;                               # variant type
+  rdf:type gvo:Insertion ;                         # variant type
   rdfs:subClassOf obo:SO_0000667 ;                 # obo:SO_0000667 (insertion) 
   dcterms:identifier "rs1322538365" ;              #$ID  or {"name": "dbSNP", "indentifier": "rs1570391677"}   
 
@@ -24,7 +24,7 @@
     faldo:location [                               # or sio:SIO_000061 (is located in)
       a faldo:InBetweenPosition ;                  # faldo:InBetweenPosition
       faldo:after 10108 ;                          # $POS
-      faldo:before 10109 ;                          # $POS + 1
+      faldo:before 10109 ;                         # $POS + 1
       faldo:reference hco:1:GRCh37 ;               # CHROM→HCO
       faldo:reference <http://identifiers.org/refseq:NC_000001.10> #CHROM
     ];
