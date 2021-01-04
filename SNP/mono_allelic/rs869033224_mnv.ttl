@@ -24,7 +24,7 @@
     faldo:location [                               # or sio:SIO_000061 (is located in)
       a faldo:Region ;                             # faldo:Region
       faldo:begin 63738 ;                          # faldo:position $POS
-      faldo:end 63740 ;                            # faldo:position $POS + 3 -1      
+      faldo:end 63740 ;                            # faldo:position $POS + 3 (base) -1      
       faldo:reference hco:1:GRCh37 ;               # CHROM→HCO
       faldo:reference <http://identifiers.org/refseq:NC_000001.10> #CHROM
     ];
@@ -38,7 +38,7 @@
     faldo:location [                               # or sio:SIO_000061 (is located in)
       a faldo:Region ;                             # faldo:Region
       faldo:begin 63738 ;                          # faldo:position $POS
-      faldo:end 63740 ;                            # faldo:position $POS + 3 -1  
+      faldo:end 63740 ;                            # faldo:position $POS + 3 (base) -1  
       faldo:reference hco:1:GRCh37 ;               #CHROM→HCO
       faldo:reference <http://identifiers.org/refseq:NC_000001.10> #CHROM
     ];
