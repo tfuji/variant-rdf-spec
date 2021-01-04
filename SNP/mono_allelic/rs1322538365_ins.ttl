@@ -24,7 +24,7 @@
     faldo:location [                               # or sio:SIO_000061 (is located in)
       a faldo:InBetweenPosition ;                  # faldo:InBetweenPosition
       faldo:after 10108 ;                          # $POS
-      faldo:after 10109 ;                          # $POS + 1
+      faldo:before 10109 ;                          # $POS + 1
       faldo:reference hco:1:GRCh37 ;               # CHROM→HCO
       faldo:reference <http://identifiers.org/refseq:NC_000001.10> #CHROM
     ];
@@ -37,7 +37,7 @@
     faldo:location [                               # or sio:SIO_000061 (is located in)
       a faldo:InBetweenPosition ;                  # faldo:InBetweenPosition
       faldo:after 10108 ;                          # $POS
-      faldo:after 10109 ;                          # $POS + 1
+      faldo:before 10109 ;                          # $POS + 1
       faldo:reference hco:1:GRCh37 ;               #CHROM→HCO
       faldo:reference <http://identifiers.org/refseq:NC_000001.10> #CHROM
     ];
